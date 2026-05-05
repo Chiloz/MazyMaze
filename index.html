@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Marble Maze</title>
+  <title>Marble Maze 3D</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1a7f37">
+  <meta name="theme-color" content="#0a2f14">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
+  <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
 </head>
 <body>
   <div id="ui">
-    <h1>Marble Maze</h1>
+    <h1>Marble Maze 3D</h1>
     <div id="hud">
-      <span>Level: <b id="level">1</b>/10</span>
-      <span>Time: <b id="time">0.0</b>s</span>
+      <span>Level <b id="level">1</b>/10</span>
+      <span>Time <b id="time">0.0</b>s</span>
     </div>
     <button id="tiltBtn">Enable Tilt</button>
   </div>
-  <canvas id="game" width="360" height="360"></canvas>
+  <canvas id="game"></canvas>
   <div id="controls">
-    <p>Desktop: Arrow keys • Mobile: Tilt phone</p>
     <button id="resetBtn">Reset</button>
-    <button id="nextBtn" hidden>Next Level</button>
+    <button id="nextBtn" hidden>Next</button>
   </div>
-  <div id="winScreen" hidden>
-    <h2>You Win!</h2>
-    <p id="winText"></p>
+  <div id="win" hidden>
+    <h2>Level Complete!</h2>
     <button id="continueBtn">Continue</button>
   </div>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
