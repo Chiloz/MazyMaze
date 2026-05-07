@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>MazyMaze 3D+</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a0a1a">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js via import map -->
+  <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+
+  <!-- ── HUD ─────────────────────────────────────── -->
+  <div id="ui">
+    <h1 id="game-title">MazyMaze 3D</h1>
+    <div id="hud">
+      <span>Lv <b id="level">1</b>/10</span>
+      <span><b id="time">0.0</b>s</span>
+      <span id="boost-badge" class="hidden">⚡ BOOST</span>
+      <select id="cam">
+        <option value="follow">Follow</option>
+        <option value="top">Top</option>
+        <option value="side">Side</option>
+        <option value="first">First-Person</option>
+      </select>
+    </div>
+    <button id="tiltBtn">Enable Tilt</button>
+  </div>
+
+  <!-- ── Main 3-D canvas ───────────────────────────── -->
+  <canvas id="game"></canvas>
+
+  <!-- ── Mini-map ──────────────────────────────────── -->
+  <canvas id="mini"></canvas>
+
+  <!-- ── Bottom controls ───────────────────────────── -->
+  <div id="controls">
+    <button id="resetBtn">Reset</button>
+    <button id="nextBtn" hidden>Next Level</button>
+  </div>
+
+  <!-- ── Win overlay ───────────────────────────────── -->
+  <div id="win" hidden>
+    <div id="win-box">
+      <h2>🎉 Level Complete!</h2>
+      <p id="win-stats"></p>
+      <button id="continueBtn">Continue</button>
+    </div>
+  </div>
+
+  <!-- ── Start / level-theme nameplate ────────────── -->
+  <div id="theme-label"></div>
+
+  <!-- ── JS modules (dependency order) ────────────── -->
+  <script type="module">
+    import { initGame } from './js/game.js';
+    initGame();
+  </script>
+</body>
+</html>
